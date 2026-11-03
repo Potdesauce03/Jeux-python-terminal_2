@@ -1,46 +1,54 @@
-# on importe pymongo pour pouvoir parler avec la base de donnees
-# on importe les fonctions utiles (demander nombre et pause) depuis utils
+import pymongo
+from utils import demander_nombre, pause
 
-# fonction pour se connecter et recuperer la base de donnees
-    # creer la connexion au serveur mongo en local sur le port de base
-    # recuperer et retourner la base de donnees du jeu
 
-# fonction pour afficher le menu principal
-    # afficher une ligne de decoration
-    # afficher le titre du jeu
-    # afficher une ligne de decoration
-    # afficher l'option 1
-    # afficher l'option 2
-    # afficher l'option 3
+# Fonction pour se connecter et recuperer la base de donnees
+def connecter_db():
+    client = pymongo.MongoClient("localhost", 27017)
+    return client["jeu_combat_terminal_v2"]
 
-# fonction pour lancer une partie
-    # afficher un petit message de debut
+
+# Fonction pour afficher le menu principal
+def afficher_menu():
+    print("\n==============================")
+    print("   JEU DE COMBAT - TERMINAL - V2   ")
+    print("==============================")
+    print("1. Lancer une partie")
+    print("2. Voir le classement (Top 3)")
+    print("3. Quitter")
+
+
+# Fonction pour lancer une partie
+def lancer_partie():
+    print("\n-> Lancement de la partie...")
     # TODO: appeler la creation d'equipe et les combats (dans game.py)
-    # faire une pause pour laisser le temps de lire
+    pause()
 
-# fonction pour afficher le classement
-    # afficher un message pour le top 3
+
+# Fonction pour afficher le classement
+def voir_classement():
+    print("\n-> Affichage du Top 3 des scores...")
     # TODO: recuperer et afficher les scores depuis mongodb
-    # faire une pause pour laisser le temps de lire
+    pause()
 
-# fonction principale qui gere le programme
-    # recuperer la base de donnees en appelant la fonction de connexion
-    # afficher le message de bienvenue au lancement
+# Fonction principale qui gere le programme
+    # Recuperer la base de donnees grace a la fonction de connexion
+    # Afficher le message de bienvenue du jeu
     
-    # boucle infinie pour garder le menu actif tout le temps
-        # appeler la fonction pour afficher le menu
+    # Boucle infinie pour garder le menu actif
+        # Afficher le menu principal a l'ecran
         
-        # demander et securiser le choix (entre 1 et 3)
+        # Demander et securiser le choix de l'utilisateur (entre 1 et 3)
         
-        # si le joueur choisit 1
-            # appeler la fonction pour lancer la partie
+        # Si le choix est 1
+            # Appeler la fonction pour lancer la partie
             
-        # si le joueur choisit 2
-            # appeler la fonction pour voir le classement
+        # Si le choix est 2
+            # Appeler la fonction pour voir le classement
             
-        # si le joueur choisit 3
-            # afficher un message d'au revoir
-            # couper la boucle avec break
+        # Si le choix est 3
+            # Afficher le message d'au revoir
+            # Quitter la boucle avec break
 
-# verifier si on execute bien ce fichier directement
-    # lancer la fonction principale du programme
+# Verifier si on execute bien ce fichier directement
+    # Lancer la fonction principale du programme
