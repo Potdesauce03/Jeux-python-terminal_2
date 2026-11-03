@@ -31,24 +31,29 @@ def voir_classement():
     # TODO: recuperer et afficher les scores depuis mongodb
     pause()
 
-# Fonction principale qui gere le programme
-    # Recuperer la base de donnees grace a la fonction de connexion
-    # Afficher le message de bienvenue du jeu
+# Fonction pour afficher le classement
+def voir_classement():
+    print("\n-> Affichage du Top 3 des scores...")
+    # TODO: recuperer et afficher les scores depuis mongodb
+    pause()
+
+
+# Fonction principale qui gere le programme et la boucle du menu
+def main():
+    db = connecter_db()
+    print("Bienvenue dans le jeu de combat !")
     
-    # Boucle infinie pour garder le menu actif
-        # Afficher le menu principal a l'ecran
+    while True:
+        afficher_menu()
+        choix = demander_nombre(1, 3)
         
-        # Demander et securiser le choix de l'utilisateur (entre 1 et 3)
-        
-        # Si le choix est 1
-            # Appeler la fonction pour lancer la partie
-            
-        # Si le choix est 2
-            # Appeler la fonction pour voir le classement
-            
-        # Si le choix est 3
-            # Afficher le message d'au revoir
-            # Quitter la boucle avec break
+        if choix == 1:
+            lancer_partie()
+        elif choix == 2:
+            voir_classement()
+        elif choix == 3:
+            print("\nMerci d'avoir joué, à bientôt !")
+            break
 
 # Verifier si on execute bien ce fichier directement
     # Lancer la fonction principale du programme
