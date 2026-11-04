@@ -1,19 +1,19 @@
 import pymongo
 
 def init_db():
-    # Connexion au client mongodb en local
+    # connexion au client mongodb en local
     client = pymongo.MongoClient("mongodb://localhost:27017/")
     
-    # On sélectionne la base de données
+    # on sélectionne la base de données
     db = client["jeu_combat"]
 
     print("Reset de la base...")
 
-    # On supprime les anciennes collections
+    # on supprime les anciennes collections
     db.personnages.drop()
     db.monsters.drop()
 
-    # Liste des heros avec leur stats
+    # liste des heros avec leur stats
     persos = [
         {"nom": "Guerrier", "atk": 50, "def": 10, "pv": 100},
         {"nom": "Mage", "atk": 20, "def": 5, "pv": 80},
@@ -27,7 +27,7 @@ def init_db():
         {"nom": "Chasseur", "atk": 16, "def": 11, "pv": 100},
     ]
 
-    # Liste des monstres avec leur stats
+    # liste des monstres avec leur stats
     monstres = [
         {"nom": "Gobelin", "atk": 10, "def": 5, "pv": 50},
         {"nom": "Orc", "atk": 20, "def": 8, "pv": 120},
@@ -42,11 +42,11 @@ def init_db():
     ]
 
     print("Ajout des persos...")
-    # Insertion des personnages dans mongodb
+    # insertion des personnages dans mongodb
     db.personnages.insert_many(persos)
 
     print("Ajout des monstres...")
-    # Insertion des monstres dans mongodb
+    # insertion des monstres dans mongodb
     db.monsters.insert_many(monstres)
 
     print(f"\nOK → {len(persos)} persos / {len(monstres)} monstres")

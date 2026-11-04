@@ -2,46 +2,38 @@ import pymongo
 from utils import demander_nombre, pause
 
 
-# Fonction pour se connecter et recuperer la base de donnees
+# fonction pour se connecter et recuperer la base de donnees
 def connecter_db():
     client = pymongo.MongoClient("localhost", 27017)
-    return client["jeu_combat_terminal_v2"]
+    return client["jeu_combat"]
 
 
-# Fonction pour afficher le menu principal
+# fonction pour afficher le menu principal
 def afficher_menu():
-    print("\n==============================")
-    print("   JEU DE COMBAT - TERMINAL - V2   ")
-    print("==============================")
+    print("   JEU DE COMBAT - TERMINAL - 2   ")
     print("1. Lancer une partie")
-    print("2. Voir le classement (Top 3)")
+    print("2. Voir le classement")
     print("3. Quitter")
 
 
 # Fonction pour lancer une partie
 def lancer_partie():
     print("\n-> Lancement de la partie...")
-    # TODO: appeler la creation d'equipe et les combats (dans game.py)
+    # TODO
     pause()
 
 
-# Fonction pour afficher le classement
+# fonction pour afficher le classement
 def voir_classement():
-    print("\n-> Affichage du Top 3 des scores...")
-    # TODO: recuperer et afficher les scores depuis mongodb
-    pause()
-
-# Fonction pour afficher le classement
-def voir_classement():
-    print("\n-> Affichage du Top 3 des scores...")
-    # TODO: recuperer et afficher les scores depuis mongodb
+    print("\n-> Le top 3")
+    # TODO
     pause()
 
 
-# Fonction principale qui gere le programme et la boucle du menu
+# fonction principale qui gere le programme et la boucle du menu
 def main():
     db = connecter_db()
-    print("Bienvenue dans le jeu de combat !")
+    print("Bienvenue dans le jeu")
     
     while True:
         afficher_menu()
@@ -52,8 +44,10 @@ def main():
         elif choix == 2:
             voir_classement()
         elif choix == 3:
-            print("\nMerci d'avoir joué, à bientôt !")
+            print("\nMerci, à bientôt")
             break
 
-# Verifier si on execute bien ce fichier directement
-    # Lancer la fonction principale du programme
+
+# verification
+if __name__ == "__main__":
+    main()
