@@ -25,3 +25,17 @@
 
 # boucle pour garder le menu actif
     #afficher le menu
+    # demander un choix compris entre 1 et 3
+
+    # si choix = 1
+        # lancer la parti
+
+    # si choix = 2
+        # afficher le classement
+
+    # si choix = 3
+        # afficher un message d'aurevoir
+        # quitter la boucle via break
+
+# verifier si on lance le script directement
+    # appeler la focntion main
